@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Happy Birthday My King 👑</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffb6b9,#ffd6d6,#fbc2eb);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
+}
+
+
+.container{
+    text-align:center;
+    animation:fade 2s ease;
+}
+
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+
+.crown{
+    font-size:45px;
+    animation:bounce 1.5s infinite;
+}
+
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:48px;
+    color:#8b0038;
+    margin-bottom:25px;
+    text-shadow:0 0 10px #ffffff;
+}
+
+
+
+.photo{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid white;
+    box-shadow:0 0 30px #ff4d88;
+}
+
+
+
+.message{
+
+    margin-top:25px;
+    background:rgba(255,255,255,0.35);
+    padding:30px;
+    border-radius:25px;
+    width:90%;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    backdrop-filter:blur(10px);
+
+}
+
+
+
+.message p{
+
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    line-height:1.8;
+    color:#5a0030;
+    font-weight:600;
+
+}
+
+
+
+.love{
+
+    color:#990033;
+    font-size:26px;
+    font-family:'Dancing Script',cursive;
+    font-weight:bold;
+    text-shadow:0 0 8px white;
+
+}
+
+
+
+
+.heart{
+
+    position:absolute;
+    color:#ff477e;
+    font-size:25px;
+    animation:fall 6s linear infinite;
+
+}
+
+
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="crown">👑</div>
+
+
+<h1>Happy Birthday, my king! 👑</h1>
+
+
+<img src="photo.jpg" class="photo">
+
+
+
+<div class="message">
+
+<p>
+
+I hope this new year of your life is full of success,
+good health, and endless love.
+
+<br><br>
+
+<span class="love">
+I love you forever. ❤️
+</span>
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+
+document.body.appendChild(heart);
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6000);
+
+
+}
+
+
+setInterval(createHeart,300);
+
+
+</script>
+
+
+</body>
+</html>
