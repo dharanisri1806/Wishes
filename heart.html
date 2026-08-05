@@ -140,7 +140,9 @@ background:#ff1f6d;
 💌
 
 </div>
-
+<div id="names">
+Dharani<br>❤️<br>Mahendra
+</div>
 <button id="next">
 
 Open My Letter ❤️
@@ -460,30 +462,33 @@ function animate(){
     }
 
 
-    else if(frame<500){
+   else if(frame<500){
 
-        formHeart();
+    formHeart();
 
-        document.getElementById("title").style.opacity=1;
+    document.getElementById("title").style.opacity=1;
 
+    if(frame>300){
+        document.getElementById("names").style.opacity=1;
     }
+
+}
 
 
     else if(frame>500 && !exploded){
 
-        setTimeout(()=>{
+    document.getElementById("names").style.opacity=0;
 
-            explode();
+    setTimeout(()=>{
 
-            document.getElementById("envelope").style.transform=
-            "translate(-50%,-50%) scale(1)";
+        explode();
 
+        document.getElementById("envelope").style.transform=
+        "translate(-50%,-50%) scale(1)";
 
-        },1000);
+    },1000);
 
-
-    }
-
+}
 
     if(exploded){
 
