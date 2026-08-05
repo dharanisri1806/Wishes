@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For Mahi ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,106 +19,254 @@ box-sizing:border-box;
 }
 
 html,body{
-
 width:100%;
 height:100%;
 overflow:hidden;
-background:#000;
-
 font-family:'Dancing Script',cursive;
-
+background:linear-gradient(135deg,#ff9ec4,#ffd6e8,#ffeef5);
 }
 
-canvas{
+/* Floating Hearts */
 
-display:block;
-
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+z-index:0;
 }
 
-#title{
-
+.hearts span{
 position:absolute;
-
-top:35px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-font-size:34px;
-
-color:#ff66cc;
-
-opacity:0;
-
-transition:1s;
-
-text-shadow:0 0 25px #ff66cc;
-
-z-index:10;
-
-}
-
-#envelope{
-
-position:absolute;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%) scale(0);
-
-font-size:90px;
-
-cursor:pointer;
-
-transition:.4s;
-
-z-index:20;
-
-}
-
-#next{
-
-position:absolute;
-
-left:50%;
-
-top:88%;
-
-transform:translateX(-50%);
-
-padding:16px 38px;
-
-border:none;
-
-border-radius:35px;
-
-background:#ff4d88;
-
-color:white;
-
+bottom:-50px;
 font-size:22px;
+animation:floatHeart linear infinite;
+opacity:.8;
+}
 
+.hearts span:nth-child(1){left:5%;animation-duration:10s;}
+.hearts span:nth-child(2){left:15%;animation-duration:8s;}
+.hearts span:nth-child(3){left:25%;animation-duration:12s;}
+.hearts span:nth-child(4){left:35%;animation-duration:9s;}
+.hearts span:nth-child(5){left:45%;animation-duration:11s;}
+.hearts span:nth-child(6){left:55%;animation-duration:8s;}
+.hearts span:nth-child(7){left:65%;animation-duration:13s;}
+.hearts span:nth-child(8){left:75%;animation-duration:10s;}
+.hearts span:nth-child(9){left:85%;animation-duration:12s;}
+.hearts span:nth-child(10){left:95%;animation-duration:9s;}
+
+@keyframes floatHeart{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* Center Container */
+
+.container{
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+z-index:5;
+}
+
+/* Envelope */
+
+.envelope{
+position:relative;
+width:320px;
+height:220px;
 cursor:pointer;
+transition:.5s;
+}
+
+.envelope:hover{
+transform:scale(1.02);
+}
+
+/* Body */
+
+.envelope-body{
+position:absolute;
+bottom:0;
+width:100%;
+height:170px;
+background:#ff5e8a;
+border-radius:0 0 12px 12px;
+z-index:2;
+box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+/* Left Fold */
+
+.left-fold{
+position:absolute;
+bottom:0;
+left:0;
+width:0;
+height:0;
+border-top:85px solid transparent;
+border-bottom:85px solid transparent;
+border-right:160px solid #ff7aa2;
+z-index:3;
+}
+
+/* Right Fold */
+
+.right-fold{
+position:absolute;
+bottom:0;
+right:0;
+width:0;
+height:0;
+border-top:85px solid transparent;
+border-bottom:85px solid transparent;
+border-left:160px solid #ff7098;
+z-index:3;
+}
+
+/* Bottom Fold */
+
+.bottom-fold{
+position:absolute;
+bottom:0;
+width:0;
+height:0;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:100px solid #ff88ad;
+z-index:4;
+}
+
+/* Top Flap */
+
+.top-flap{
+position:absolute;
+top:0;
+width:0;
+height:0;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-bottom:110px solid #ff3f76;
+transform-origin:top;
+transition:1.5s;
+z-index:5;
+}
+
+/* Letter */
+
+.letter{
+position:absolute;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+width:88%;
+height:160px;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:#ff3f76;
+transition:1.8s;
+z-index:1;
+}
+
+.envelope.open .top-flap{
+transform:rotateX(180deg);
+z-index:0;
+}
+
+.envelope.open .letter{
+bottom:210px;
+height:500px;
+width:92vw;
+max-width:420px;
+overflow-y:auto;
+padding:30px 25px;
+}
+
+/* Hidden Letter Content */
+
+#letterContent{
+display:none;
+opacity:0;
+transition:1.5s;
+font-size:22px;
+line-height:1.9;
+color:#444;
+text-align:left;
+}
+
+#letterContent h1{
+text-align:center;
+color:#ff2f72;
+margin-bottom:20px;
+}
+
+#letterContent p{
+margin-bottom:15px;
+}
+
+#nextBtn{
 
 display:none;
 
-box-shadow:0 0 25px hotpink;
+margin:30px auto;
 
-transition:.2s;
+padding:15px 35px;
 
-font-family:Arial;
+font-size:20px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ff3f76;
+
+color:white;
+
+cursor:pointer;
+
+box-shadow:0 0 20px #ff3f76;
+
+animation:glow 1.5s infinite;
 
 }
 
-#next:hover{
+@keyframes glow{
 
-transform:translateX(-50%) scale(1.08);
+0%{box-shadow:0 0 5px #ff3f76;}
 
-background:#ff1f6d;
+50%{box-shadow:0 0 25px #ff3f76;}
 
+100%{box-shadow:0 0 5px #ff3f76;}
+
+}
+
+audio{
+display:none;
 }
 
 </style>
@@ -127,416 +275,39 @@ background:#ff1f6d;
 
 <body>
 
-<canvas id="canvas"></canvas>
+<div class="hearts">
 
-<div id="title">
-
-❤️ Creating Our Love... ❤️
+<span>❤️</span>
+<span>💖</span>
+<span>💕</span>
+<span>💗</span>
+<span>💝</span>
+<span>❤️</span>
+<span>💖</span>
+<span>💕</span>
+<span>💗</span>
+<span>💝</span>
 
 </div>
 
-<div id="envelope">
+<div class="container">
 
-💌
+<div class="envelope" id="envelope">
+
+<div class="top-flap"></div>
+
+<div class="left-fold"></div>
+
+<div class="right-fold"></div>
+
+<div class="bottom-fold"></div>
+
+<div class="envelope-body"></div>
+
+<div class="letter" id="letter">
+Click Me ❤️
+</div>
 
 </div>
 
-<button id="next">
-
-Open My Letter ❤️
-
-</button>
-
-<script>
-
-const canvas=document.getElementById("canvas");
-
-const ctx=canvas.getContext("2d");
-
-function resize(){
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-}
-
-resize();
-
-window.addEventListener("resize",resize);
-
-const stars=[];
-
-const STAR_COUNT=1500;
-
-class Star{
-
-constructor(){
-
-this.reset();
-
-}
-
-reset(){
-
-this.x=Math.random()*canvas.width;
-
-this.y=Math.random()*canvas.height;
-
-this.tx=this.x;
-
-this.ty=this.y;
-
-this.vx=0;
-
-this.vy=0;
-
-this.size=Math.random()*2+0.8;
-
-this.speed=0.018+Math.random()*0.02;
-
-this.color=`hsl(${300+Math.random()*40},100%,65%)`;
-
-}
-
-update(){
-
-this.x+=(this.tx-this.x)*this.speed;
-
-this.y+=(this.ty-this.y)*this.speed;
-
-}
-
-draw(){
-
-ctx.beginPath();
-
-ctx.fillStyle=this.color;
-
-ctx.shadowBlur=18;
-
-ctx.shadowColor=this.color;
-
-ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-
-ctx.fill();
-
-}
-
-}
-
-for(let i=0;i<STAR_COUNT;i++){
-
-stars.push(new Star());
-
-}
-
-let frame=0;
-
-let exploded=false;
-
-// ======================================
-// PART 2
-// ======================================
-
-function heartPoint(t){
-
-    const x = 16*Math.pow(Math.sin(t),3);
-
-    const y =
-        13*Math.cos(t)
-        -5*Math.cos(2*t)
-        -2*Math.cos(3*t)
-        -Math.cos(4*t);
-
-    return{
-
-        x:canvas.width/2 + x*16,
-
-        y:canvas.height/2 - y*16
-
-    };
-
-}
-
-function swirlStars(){
-
-    stars.forEach((s,i)=>{
-
-        let angle = frame*0.02 + i*0.08;
-
-        let radius = 250 + 80*Math.sin(i);
-
-        s.tx = canvas.width/2 + Math.cos(angle)*radius;
-
-        s.ty = canvas.height/2 + Math.sin(angle)*radius;
-
-    });
-
-}
-
-function formHeart(){
-
-    stars.forEach((s,i)=>{
-
-        let a = (i/stars.length)*Math.PI*2;
-
-        let p = heartPoint(a);
-
-        s.tx = p.x;
-
-        s.ty = p.y;
-
-    });
-
-}
-
-function explode(){
-
-    exploded = true;
-
-    stars.forEach(s=>{
-
-        let a = Math.random()*Math.PI*2;
-
-        let speed = 4 + Math.random()*6;
-
-        s.vx = Math.cos(a)*speed;
-
-        s.vy = Math.sin(a)*speed;
-
-    });
-
-}
-
-function updateExplosion(){
-
-    stars.forEach(s=>{
-
-        s.x += s.vx;
-
-        s.y += s.vy;
-
-        s.vx *= 0.98;
-
-        s.vy *= 0.98;
-
-    });
-
-}
-
-// ======================================
-// PART 3
-// METEOR HEART + GLOW EFFECT
-// ======================================
-
-
-const meteors=[];
-
-
-function createMeteor(){
-
-    let meteor={
-
-        x:Math.random()*canvas.width,
-
-        y:-50,
-
-        speed:5+Math.random()*6,
-
-        length:50+Math.random()*80
-
-    };
-
-
-    meteors.push(meteor);
-
-}
-
-
-
-function drawMeteors(){
-
-    meteors.forEach((m,index)=>{
-
-
-        let gradient=ctx.createLinearGradient(
-            m.x,
-            m.y,
-            m.x-m.length,
-            m.y+m.length
-        );
-
-
-        gradient.addColorStop(0,"white");
-
-        gradient.addColorStop(0.4,"pink");
-
-        gradient.addColorStop(1,"transparent");
-
-
-        ctx.beginPath();
-
-        ctx.strokeStyle=gradient;
-
-        ctx.lineWidth=3;
-
-        ctx.moveTo(m.x,m.y);
-
-        ctx.lineTo(
-            m.x-m.length,
-            m.y+m.length
-        );
-
-        ctx.stroke();
-
-
-
-        m.x-=m.speed;
-
-        m.y+=m.speed;
-
-
-
-        if(m.y>canvas.height+100){
-
-            meteors.splice(index,1);
-
-        }
-
-
-    });
-
-}
-
-
-
-function heartGlow(){
-
-    let glow=25+Math.sin(frame*0.08)*15;
-
-
-    ctx.shadowBlur=glow;
-
-    ctx.shadowColor="#ff1493";
-
-
-}
-
-
-
-// ======================================
-// MAIN ANIMATION LOOP
-// ======================================
-
-
-function animate(){
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    frame++;
-
-
-    stars.forEach(s=>{
-
-        s.update();
-
-        s.draw();
-
-    });
-
-
-
-    if(frame<200){
-
-        swirlStars();
-
-    }
-
-
-    else if(frame<500){
-
-        formHeart();
-
-        document.getElementById("title").style.opacity=1;
-
-    }
-
-
-    else if(frame>500 && !exploded){
-
-        setTimeout(()=>{
-
-            explode();
-
-            document.getElementById("envelope").style.transform=
-            "translate(-50%,-50%) scale(1)";
-
-
-        },1000);
-
-
-    }
-
-
-    if(exploded){
-
-        updateExplosion();
-
-        heartGlow();
-
-
-        if(Math.random()<0.08){
-
-            createMeteor();
-
-        }
-
-
-        drawMeteors();
-
-    }
-
-
-    requestAnimationFrame(animate);
-
-}
-
-
-animate();
-
-
-// ======================================
-// ENVELOPE CLICK
-// ======================================
-
-
-document.getElementById("envelope").onclick=function(){
-
-
-    document.getElementById("next").style.display="block";
-
-
-};
-
-
-
-document.getElementById("next").onclick=function(){
-
-
-    window.location.href="letters.html";
-
-
-};
-
-</script>
-
-</body>
-
-</html>
+</div>
