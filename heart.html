@@ -30,9 +30,11 @@ font-family:'Dancing Script',cursive;
 }
 
 canvas{
-
 display:block;
-
+position:absolute;
+top:0;
+left:0;
+z-index:1;
 }
 
 #title{
@@ -118,6 +120,38 @@ font-family:Arial;
 transform:translateX(-50%) scale(1.08);
 
 background:#ff1f6d;
+
+}
+
+#names{
+
+position:absolute;
+
+left:50%;
+
+top:55%;
+
+transform:translate(-50%,-50%);
+
+font-size:42px;
+
+font-family:'Dancing Script',cursive;
+
+text-align:center;
+
+color:#ff66cc;
+
+text-shadow:0 0 25px #ff1493;
+
+opacity:0;
+
+transition:1s;
+
+z-index:15;
+
+line-height:1.2;
+
+pointer-events:none;
 
 }
 
