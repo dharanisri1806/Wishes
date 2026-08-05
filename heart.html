@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Mahi ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,590 +19,556 @@ box-sizing:border-box;
 }
 
 html,body{
+
 width:100%;
 height:100%;
 overflow:hidden;
-font-family:'Poppins',sans-serif;
-background:
-radial-gradient(circle at top,#ffe6f2 0%,#ffd3ea 40%,#ffc2df 70%,#ffb0d4 100%);
-}
+background:#000;
 
-body{
-display:flex;
-justify-content:center;
-align-items:center;
-position:relative;
-}
-
-/* ---------- Floating Background ---------- */
-
-.backgroundGlow{
-position:absolute;
-inset:0;
-overflow:hidden;
-z-index:0;
-}
-
-.backgroundGlow span{
-position:absolute;
-display:block;
-border-radius:50%;
-background:rgba(255,255,255,.25);
-animation:floatBg linear infinite;
-}
-
-@keyframes floatBg{
-
-0%{
-transform:translateY(120vh) scale(.5);
-opacity:0;
-}
-
-20%{
-opacity:.4;
-}
-
-80%{
-opacity:.2;
-}
-
-100%{
-transform:translateY(-120vh) scale(1.4);
-opacity:0;
-}
-
-}
-
-/* ---------- Main Scene ---------- */
-
-.scene{
-position:relative;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-}
-
-/* ---------- Heart Container ---------- */
-
-.heartWrapper{
-position:absolute;
-width:420px;
-height:380px;
-display:flex;
-justify-content:center;
-align-items:center;
-transition:1.3s;
-opacity:0;
-transform:scale(.6);
-}
-
-.heartWrapper.show{
-opacity:1;
-transform:scale(1);
-}
-
-.heartParticle{
-position:absolute;
-width:8px;
-height:8px;
-background:#ff2f73;
-transform:rotate(45deg);
-animation:tinyBeat 2s infinite;
-}
-
-.heartParticle::before,
-.heartParticle::after{
-content:"";
-position:absolute;
-width:8px;
-height:8px;
-background:#ff2f73;
-border-radius:50%;
-}
-
-.heartParticle::before{
-left:-4px;
-}
-
-.heartParticle::after{
-top:-4px;
-}
-
-@keyframes tinyBeat{
-
-0%,100%{
-transform:rotate(45deg) scale(1);
-}
-
-50%{
-transform:rotate(45deg) scale(1.18);
-}
-
-}
-
-/* ---------- Center Text ---------- */
-
-.centerBeat{
-position:absolute;
-width:210px;
-height:210px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
 font-family:'Dancing Script',cursive;
+
+}
+
+canvas{
+
+display:block;
+
+}
+
+#title{
+
+position:absolute;
+
+top:35px;
+
+left:50%;
+
+transform:translateX(-50%);
+
 font-size:34px;
-font-weight:bold;
-color:#fff;
-text-shadow:
-0 0 10px #ff4f9c,
-0 0 20px #ff8bc4,
-0 0 40px #fff;
-animation:mainBeat 1.4s ease-in-out infinite;
+
+color:#ff66cc;
+
+opacity:0;
+
+transition:1s;
+
+text-shadow:0 0 25px #ff66cc;
+
 z-index:10;
-}
-
-@keyframes mainBeat{
-
-0%{
-transform:scale(1);
-}
-
-25%{
-transform:scale(1.08);
-}
-
-40%{
-transform:scale(1.22);
-}
-
-60%{
-transform:scale(1);
-}
-
-100%{
-transform:scale(1);
-}
 
 }
 
-/* ---------- Glitter ---------- */
+#envelope{
 
-.glitterContainer{
 position:absolute;
-inset:0;
-pointer-events:none;
-overflow:hidden;
-z-index:4;
-}
 
-.glitter{
-position:absolute;
-width:4px;
-height:4px;
-border-radius:50%;
-background:white;
-opacity:0;
-}
+left:50%;
 
-/* ---------- Envelope ---------- */
+top:50%;
 
-.envelopeScene{
-position:absolute;
-display:flex;
-justify-content:center;
-align-items:center;
-opacity:0;
-transform:scale(.7);
-transition:1.5s;
+transform:translate(-50%,-50%) scale(0);
+
+font-size:90px;
+
+cursor:pointer;
+
+transition:.4s;
+
 z-index:20;
+
 }
 
-.envelopeScene.show{
-opacity:1;
-transform:scale(1);
-}
+#next{
 
-.envelope{
-position:relative;
-width:280px;
-height:180px;
-}
-
-.envBack{
 position:absolute;
-bottom:0;
-width:100%;
-height:100%;
-background:#ff82b8;
-border-radius:0 0 12px 12px;
+
+left:50%;
+
+top:88%;
+
+transform:translateX(-50%);
+
+padding:16px 38px;
+
+border:none;
+
+border-radius:35px;
+
+background:#ff4d88;
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+display:none;
+
+box-shadow:0 0 25px hotpink;
+
+transition:.2s;
+
+font-family:Arial;
+
 }
 
-.envLeft{
-position:absolute;
-left:0;
-bottom:0;
-width:0;
-height:0;
-border-top:90px solid transparent;
-border-bottom:90px solid transparent;
-border-left:140px solid #ff9cc7;
-}
+#next:hover{
 
-.envRight{
-position:absolute;
-right:0;
-bottom:0;
-width:0;
-height:0;
-border-top:90px solid transparent;
-border-bottom:90px solid transparent;
-border-right:140px solid #ff74af;
-}
+transform:translateX(-50%) scale(1.08);
 
-.envBottom{
-position:absolute;
-bottom:0;
-left:0;
-width:0;
-height:0;
-border-left:140px solid transparent;
-border-right:140px solid transparent;
-border-bottom:90px solid #ff66a7;
-}
-
-.envFlap{
-position:absolute;
-top:0;
-left:0;
-width:0;
-height:0;
-transform-origin:top;
-border-left:140px solid transparent;
-border-right:140px solid transparent;
-border-top:90px solid #ff4d97;
-z-index:10;
-transition:1.8s ease;
-}
-
-.envLetter{
-position:absolute;
-left:20px;
-bottom:10px;
-width:240px;
-height:145px;
-background:white;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-transition:2s;
-z-index:1;
-}
-
-.open .envFlap{
-transform:rotateX(180deg);
-}
-
-.open .envLetter{
-transform:translateY(-170px);
-}
-
-@media(max-width:480px){
-
-.heartWrapper{
-width:320px;
-height:300px;
-}
-
-.centerBeat{
-width:170px;
-height:170px;
-font-size:28px;
-}
-
-.envelope{
-transform:scale(.9);
-}
+background:#ff1f6d;
 
 }
 
 </style>
+
 </head>
+
 <body>
 
-<div class="backgroundGlow" id="backgroundGlow"></div>
+<canvas id="canvas"></canvas>
 
-<div class="scene">
+<div id="title">
 
-<div class="heartWrapper" id="heartWrapper">
-
-<div class="centerBeat">
-Dharani ❤️<br>Mahendra
-</div>
-</div>
-
-<div class="glitterContainer" id="glitterContainer"></div>
-
-<div class="envelopeScene" id="envelopeScene">
-
-<div class="envelope" id="envelope">
-
-<div class="envBack"></div>
-<div class="envLeft"></div>
-<div class="envRight"></div>
-<div class="envBottom"></div>
-
-<div class="envLetter"></div>
-
-<div class="envFlap"></div>
+❤️ Creating Our Love... ❤️
 
 </div>
 
-</div>
+<div id="envelope">
+
+💌
 
 </div>
+
+<button id="next">
+
+Open My Letter ❤️
+
+</button>
 
 <script>
 
-const bg=document.getElementById("backgroundGlow");
+const canvas=document.getElementById("canvas");
 
-for(let i=0;i<40;i++){
+const ctx=canvas.getContext("2d");
 
-const b=document.createElement("span");
+function resize(){
 
-const s=Math.random()*80+20;
+canvas.width=window.innerWidth;
 
-b.style.width=s+"px";
-b.style.height=s+"px";
-b.style.left=Math.random()*100+"%";
-b.style.animationDuration=(18+Math.random()*18)+"s";
-b.style.animationDelay=(-Math.random()*30)+"s";
-
-bg.appendChild(b);
+canvas.height=window.innerHeight;
 
 }
 
-/* ---------- PERFECT HEART ---------- */
+resize();
 
-const wrapper=document.getElementById("heartWrapper");
+window.addEventListener("resize",resize);
 
-const TOTAL=140;
+const stars=[];
 
-for(let i=0;i<TOTAL;i++){
+const STAR_COUNT=1500;
 
-const t=(Math.PI*2*i)/TOTAL;
+class Star{
 
-const x=16*Math.pow(Math.sin(t),3);
+constructor(){
 
-const y=
-13*Math.cos(t)
--
-5*Math.cos(2*t)
--
-2*Math.cos(3*t)
--
-Math.cos(4*t);
-
-const dot=document.createElement("div");
-
-dot.className="heartParticle";
-
-dot.style.left=(210+x*11)+"px";
-
-dot.style.top=(175-y*11)+"px";
-
-dot.style.animationDelay=(Math.random()*1.5)+"s";
-
-wrapper.appendChild(dot);
+this.reset();
 
 }
 
-setTimeout(()=>{
+reset(){
 
-wrapper.classList.add("show");
+this.x=Math.random()*canvas.width;
 
-},400);
+this.y=Math.random()*canvas.height;
 
-/* ---------- GLITTER EXPLOSION ---------- */
+this.tx=this.x;
 
-function glitterBlast(){
+this.ty=this.y;
 
-const box=document.getElementById("glitterContainer");
+this.vx=0;
 
-for(let i=0;i<260;i++){
+this.vy=0;
 
-const g=document.createElement("div");
+this.size=Math.random()*2+0.8;
 
-g.className="glitter";
+this.speed=0.018+Math.random()*0.02;
 
-const angle=Math.random()*Math.PI*2;
+this.color=`hsl(${300+Math.random()*40},100%,65%)`;
 
-const speed=120+Math.random()*240;
-
-const dx=Math.cos(angle)*speed;
-
-const dy=Math.sin(angle)*speed;
-
-g.style.left="50%";
-g.style.top="50%";
-
-box.appendChild(g);
-
-g.animate(
-
-[
-{
-transform:"translate(0,0) scale(0)",
-opacity:1
-},
-{
-transform:`translate(${dx}px,${dy}px) scale(${Math.random()*2+0.5})`,
-opacity:0
-}
-],
-{
-duration:1700,
-easing:"cubic-bezier(.2,.8,.2,1)"
 }
 
-);
+update(){
 
-setTimeout(()=>g.remove(),1800);
+this.x+=(this.tx-this.x)*this.speed;
+
+this.y+=(this.ty-this.y)*this.speed;
+
+}
+
+draw(){
+
+ctx.beginPath();
+
+ctx.fillStyle=this.color;
+
+ctx.shadowBlur=18;
+
+ctx.shadowColor=this.color;
+
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+
+ctx.fill();
 
 }
 
 }
-/* ---------- TIMELINE ---------- */
 
-const envelopeScene=document.getElementById("envelopeScene");
-const envelope=document.getElementById("envelope");
+for(let i=0;i<STAR_COUNT;i++){
 
-setTimeout(()=>{
-
-glitterBlast();
-
-},2400);
-
-setTimeout(()=>{
-
-wrapper.style.transition="1.4s";
-wrapper.style.opacity="0";
-wrapper.style.transform="scale(.4)";
-
-},4300);
-
-setTimeout(()=>{
-
-envelopeScene.classList.add("show");
-
-},5600);
-
-setTimeout(()=>{
-
-envelope.classList.add("open");
-
-},7600);
-
-/* ---------- EXTRA SPARKLES ---------- */
-
-function sparkle(){
-
-const s=document.createElement("div");
-
-s.className="glitter";
-
-s.style.opacity=".9";
-s.style.width=(2+Math.random()*4)+"px";
-s.style.height=s.style.width;
-
-s.style.left=Math.random()*100+"vw";
-s.style.top=Math.random()*100+"vh";
-
-document.getElementById("glitterContainer").appendChild(s);
-
-s.animate(
-[
-{
-opacity:0,
-transform:"scale(0)"
-},
-{
-opacity:1,
-transform:"scale(1.6)"
-},
-{
-opacity:0,
-transform:"scale(0)"
-}
-],
-{
-duration:1500+Math.random()*1200
-}
-);
-
-setTimeout(()=>s.remove(),3000);
+stars.push(new Star());
 
 }
 
-setInterval(sparkle,180);
-/* ---------- REDIRECT ---------- */
+let frame=0;
 
-setTimeout(()=>{
+let exploded=false;
 
-window.location.href="letter.html";
+// ======================================
+// PART 2
+// ======================================
 
-},10800);
+function textPoints(){
 
-/* ---------- OPTIONAL HEART FLOATERS ---------- */
+    const text="Dharani ❤️ Mahendra";
 
-function floatingHeart(){
+    ctx.save();
 
-const h=document.createElement("div");
+    ctx.font="bold 70px Dancing Script";
 
-h.innerHTML="❤";
+    const width=ctx.measureText(text).width;
 
-h.style.position="fixed";
-h.style.left=Math.random()*100+"vw";
-h.style.bottom="-30px";
-h.style.fontSize=(8+Math.random()*10)+"px";
-h.style.color="rgba(255,255,255,.8)";
-h.style.pointerEvents="none";
-h.style.zIndex="2";
+    const x=(canvas.width-width)/2;
 
-document.body.appendChild(h);
+    const y=canvas.height/2;
 
-h.animate(
-[
-{
-transform:"translateY(0) scale(0.5)",
-opacity:0
-},
-{
-opacity:1
-},
-{
-transform:`translateY(-${window.innerHeight+100}px)
-translateX(${(Math.random()-0.5)*120}px)
-scale(1.2)`,
-opacity:0
+    ctx.fillStyle="white";
+
+    ctx.fillText(text,x,y);
+
+    const img=ctx.getImageData(0,0,canvas.width,canvas.height);
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.restore();
+
+    let pts=[];
+
+    for(let yy=0;yy<canvas.height;yy+=6){
+
+        for(let xx=0;xx<canvas.width;xx+=6){
+
+            let alpha=img.data[(yy*canvas.width+xx)*4+3];
+
+            if(alpha>120){
+
+                pts.push({x:xx,y:yy});
+
+            }
+
+        }
+
+    }
+
+    return pts;
+
 }
-],
-{
-duration:6000+Math.random()*2500,
-easing:"linear"
+
+const namePoints=textPoints();
+
+function swirlStars(){
+
+    stars.forEach((s,i)=>{
+
+        let angle = frame*0.02 + i*0.08;
+
+        let radius = 250 + 80*Math.sin(i);
+
+        s.tx = canvas.width/2 + Math.cos(angle)*radius;
+
+        s.ty = canvas.height/2 + Math.sin(angle)*radius;
+
+    });
+
 }
-);
 
-setTimeout(()=>h.remove(),9000);
+function formHeart(){
+
+    stars.forEach((s,i)=>{
+
+        if(frame<270){
+
+            let a=(i/stars.length)*Math.PI*2;
+
+            let p=heartPoint(a);
+
+            s.tx=p.x;
+
+            s.ty=p.y;
+
+        }
+
+        else{
+
+            let p=namePoints[i%namePoints.length];
+
+            s.tx=p.x;
+
+            s.ty=p.y;
+
+        }
+
+    });
+
+}
+function explode(){
+
+    exploded = true;
+
+    stars.forEach(s=>{
+
+        let a = Math.random()*Math.PI*2;
+
+        let speed = 4 + Math.random()*6;
+
+        s.vx = Math.cos(a)*speed;
+
+        s.vy = Math.sin(a)*speed;
+
+    });
 
 }
 
-setInterval(floatingHeart,300);
+function updateExplosion(){
+
+    stars.forEach(s=>{
+
+        s.x += s.vx;
+
+        s.y += s.vy;
+
+        s.vx *= 0.98;
+
+        s.vy *= 0.98;
+
+    });
+
+}
+
+// ======================================
+// PART 3
+// METEOR HEART + GLOW EFFECT
+// ======================================
+
+
+const meteors=[];
+
+
+function createMeteor(){
+
+    let meteor={
+
+        x:Math.random()*canvas.width,
+
+        y:-50,
+
+        speed:5+Math.random()*6,
+
+        length:50+Math.random()*80
+
+    };
+
+
+    meteors.push(meteor);
+
+}
+
+
+
+function drawMeteors(){
+
+    meteors.forEach((m,index)=>{
+
+
+        let gradient=ctx.createLinearGradient(
+            m.x,
+            m.y,
+            m.x-m.length,
+            m.y+m.length
+        );
+
+
+        gradient.addColorStop(0,"white");
+
+        gradient.addColorStop(0.4,"pink");
+
+        gradient.addColorStop(1,"transparent");
+
+
+        ctx.beginPath();
+
+        ctx.strokeStyle=gradient;
+
+        ctx.lineWidth=3;
+
+        ctx.moveTo(m.x,m.y);
+
+        ctx.lineTo(
+            m.x-m.length,
+            m.y+m.length
+        );
+
+        ctx.stroke();
+
+
+
+        m.x-=m.speed;
+
+        m.y+=m.speed;
+
+
+
+        if(m.y>canvas.height+100){
+
+            meteors.splice(index,1);
+
+        }
+
+
+    });
+
+}
+
+
+
+function heartGlow(){
+
+    let glow=25+Math.sin(frame*0.08)*15;
+
+
+    ctx.shadowBlur=glow;
+
+    ctx.shadowColor="#ff1493";
+
+
+}
+
+
+
+// ======================================
+// MAIN ANIMATION LOOP
+// ======================================
+
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    frame++;
+
+
+    stars.forEach(s=>{
+
+        s.update();
+
+        s.draw();
+
+    });
+
+
+
+   if(frame<200){
+
+    swirlStars();
+
+}
+
+else if(frame<340){
+
+    formHeart();
+
+    document.getElementById("title").style.opacity=1;
+
+}
+
+else if(!exploded){
+
+    explode();
+
+    document.getElementById("envelope").style.transform=
+    "translate(-50%,-50%) scale(1)";
+
+}
+
+    if(exploded){
+
+        updateExplosion();
+
+        heartGlow();
+
+
+        if(Math.random()<0.08){
+
+            createMeteor();
+
+        }
+
+
+        drawMeteors();
+
+    }
+
+
+    requestAnimationFrame(animate);
+
+}
+
+
+animate();
+
+
+// ======================================
+// ENVELOPE CLICK
+// ======================================
+
+
+document.getElementById("envelope").onclick=function(){
+
+
+    document.getElementById("next").style.display="block";
+
+
+};
+
+
+
+document.getElementById("next").onclick=function(){
+
+
+    window.location.href="letters.html";
+
+
+};
 
 </script>
 
 </body>
+
 </html>
